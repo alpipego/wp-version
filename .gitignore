@@ -1,6 +1,8 @@
 *.log
 .idea/
 
+wp-version/composer.lock
+
 wp-version/config/env.json
 
 wp-version/web/wp-content/
