@@ -1,0 +1,25 @@
+*.log
+.idea/
+
+wp-version/config/env.json
+
+wp-version/web/wp-content/
+    !wp-version/web/wp-content/index.php
+wp-version/web/wp-content/upgrade/
+wp-version/web/wp-content/uploads/
+wp-version/web/wp-content/mu-plugins/
+    !wp-version/web/wp-content/mu-plugins/version-in-footer.php
+wp-version/web/wp-content/themes/
+    !wp-version/web/wp-content/themes/index.php
+    !wp-version/web/wp-content/themes/twentyten/
+    !wp-version/web/wp-content/themes/twentyeleven/
+    !wp-version/web/wp-content/themes/twentytwelve/
+    !wp-version/web/wp-content/themes/twentythirteen/
+    !wp-version/web/wp-content/themes/twentyfourteen/
+    !wp-version/web/wp-content/themes/twentyfifteen/
+    !wp-version/web/wp-content/themes/twentysixteen/
+wp-version/web/wp-content/plugins/
+    !wp-version/web/wp-content/plugins/index.php
+
+wp-version/web/wordpress/
+    !wp-version/web/wordpress/index.php
