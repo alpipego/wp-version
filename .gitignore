@@ -3,6 +3,8 @@
 
 wp-version/composer.lock
 
+wp-version/vendor
+
 wp-version/config/env.json
 
 wp-version/web/wp-content/
