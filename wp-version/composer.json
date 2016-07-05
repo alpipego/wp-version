@@ -1,0 +1,61 @@
+{
+  "name": "alpipego/wp-version",
+  "authors": [
+    {
+      "name": "Alexander Goller",
+      "email": "alpipego@gmail.com"
+    }
+  ],
+  "repositories": [
+    {
+      "type": "composer",
+      "url": "https://wpackagist.org"
+    },
+    {
+      "type": "composer",
+      "url": "https://wp-languages.github.io"
+    }
+  ],
+  "require": {
+    "composer/installers": "~1.0",
+
+    "johnpbloch/wordpress": "4.5.3",
+
+    "bueltge/must-use-loader": "*",
+
+    "wpackagist-theme/twentysixteen": "1.2",
+    "wpackagist-theme/twentyfifteen": "1.5",
+    "wpackagist-theme/twentyfourteen": "1.7",
+    "wpackagist-theme/twentythirteen": "1.9",
+    "wpackagist-theme/twentytwelve": "2.0",
+    "wpackagist-theme/twentyeleven": "2.4",
+    "wpackagist-theme/twentyten": "2.1"
+  },
+  "extra": {
+    "wordpress-install-dir": "web/wordpress",
+    "installer-paths": {
+      "web/wp-content/mu-plugins/{$name}/": ["type:wordpress-muplugin"],
+      "web/wp-content/plugins/{$name}/": ["type:wordpress-plugin"],
+      "web/wp-content/themes/{$name}/": ["type:wordpress-theme"]
+    },
+    "dropin-paths": {
+      "web/languages/": ["vendor:koodimonni-language"],
+      "web/languages/plugins/": ["vendor:koodimonni-plugin-language"],
+      "web/languages/themes/": ["vendor:koodimonni-theme-language"]
+    }
+  },
+  "scripts": {
+    "pre-install-cmd": [
+      "sudo chown -R `whoami`: ."
+    ],
+    "post-install-cmd": [
+      "sudo chown -R www-data:www-data web/ log/"
+    ],
+    "pre-update-cmd": [
+      "sudo chown -R `whoami`: ."
+    ],
+    "post-update-cmd": [
+      "sudo chown -R www-data:www-data web/ log/"
+    ]
+  }
+}
