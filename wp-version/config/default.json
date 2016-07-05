@@ -1,0 +1,14 @@
+{
+    "connection": {
+        "wp": {
+            "db": "wordpress_version_testing",
+            "user": "root",
+            "password": "password",
+            "host": "localhost",
+            "charset": "utf8mb4",
+            "collate": "",
+            "tablePrefix": "wp_"
+        }
+    },
+    "url": "http://wp.version/"
+}
