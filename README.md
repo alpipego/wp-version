@@ -106,11 +106,11 @@ or
 "wpackagist-theme/twentysixteen": "1.2"
 ```
 
-### WordPress
+**WordPress**
 
 Change the WordPress version in `composer.json` and run `composer update`
 
-## Without Composer
+#### Without Composer
 If you do not want to use composer, run the following to obtain WordPress: 
 
 ```
