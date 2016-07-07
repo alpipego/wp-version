@@ -155,3 +155,13 @@ Twenty Sixteen &ndash; Version 4.4
 ### Server Logs
 The server logs (error and access log) are located in `/var/www/wp-version/log`.
 
+## Passwords
+
+### WordPress Installation
+* user: admin
+* pass: password
+
+### MySOL DB
+* DB Name: wordpress_version_testing
+* user: root
+* pass: password
