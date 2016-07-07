@@ -142,15 +142,15 @@ Composer requires PHP 5.3.2+ so make sure to install the required packages befor
 ### Themes
 If you checkout an older version of WordPress you might want to activate the default theme that came with that version as well. Otherwise there might be some `Undefined Function` errors on the page. See the following for a list and pick the theme that is nearest to the release you are checking out:
 
-Twenty Ten &ndash; Version 3.0
-Twenty Eleven &ndash; Version 3.2
-Twenty Twelve &ndash; Version 3.5
-Twenty Thirteen &ndash; Version 3.6
-Twenty Fourteen &ndash; Version 3.8
-Twenty Fifteen &ndash; Version 4.1
-Twenty Sixteen &ndash; Version 4.4
+* Twenty Ten &ndash; Version 3.0
+* Twenty Eleven &ndash; Version 3.2
+* Twenty Twelve &ndash; Version 3.5
+* Twenty Thirteen &ndash; Version 3.6
+* Twenty Fourteen &ndash; Version 3.8
+* Twenty Fifteen &ndash; Version 4.1
+* Twenty Sixteen &ndash; Version 4.4
 
-**The latest version of the theme is not necessarily compatible to the WordPress version it original shipped with, (e.g. WordPress 3.8 and TwentyFourteen 1.7). If you happen to see `undefined function` errors you might want to get an older version of the theme.**
+**The latest version of a theme is not necessarily compatible to the WordPress version it original shipped with, (e.g. WordPress 3.8 and TwentyFourteen 1.7). If you happen to see `undefined function` errors you might want to get an older version of the theme.**
 
 ### Server Logs
 The server logs (error and access log) are located in `/var/www/wp-version/log`.
