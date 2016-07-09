@@ -1,5 +1,5 @@
 # WP Version
- A virtual machine for testing WordPress in different environments.
+ A Vagrant virtual machine for testing WordPress in different environments.
  
 ## What's in it?
 Nginx and Apache web servers alongside php fpm.
@@ -155,7 +155,7 @@ If you checkout an older version of WordPress you might want to activate the def
 ### Server Logs
 The server logs (error and access log) are located in `/var/www/wp-version/log`.
 
-## Passwords
+## Credentials
 
 ### WordPress Installation
 * user: admin
