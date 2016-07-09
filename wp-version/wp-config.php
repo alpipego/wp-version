@@ -5,7 +5,11 @@ $conf = array_merge(
 	json_decode( file_get_contents( dirname( __FILE__ ) . '/config/env.json' ), true )
 );
 
-error_reporting( E_ALL ^ E_DEPRECATED );
+if ( defined( 'E_DEPRECATED' ) ) {
+	error_reporting( E_ALL ^ E_DEPRECATED );
+} else {
+	error_reporting( - 1 );
+}
 
 /**
  * DB Settings
