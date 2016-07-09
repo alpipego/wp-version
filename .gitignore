@@ -7,6 +7,9 @@
 
 /wp-version/config/env.json
 
+/wp-version/web/wp-content/
+    !/wp-version/web/wp-content/index.php
+
 /wp-version/web/wp-content/upgrade/
 /wp-version/web/wp-content/uploads/
 /wp-version/web/wp-content/mu-plugins/
