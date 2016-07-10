@@ -11,5 +11,12 @@ Author URI: http://alpipego.com/
 add_filter( 'update_footer', 'version_in_footer', 11 );
 
 function version_in_footer() {
-	return sprintf('You are running WordPress %s and <a href="%s">PHP %s</a> | %s', get_bloginfo('version'), get_bloginfo('url') . '/info.php', phpversion(), $_SERVER['SERVER_SOFTWARE']);
+	$update     = core_update_footer();
+	$wp_version = strpos( $update, '<strong>' ) === 0 ? get_bloginfo( 'version' ) . ' (' . $update . ')' : get_bloginfo( 'version' );
+
+	$mysqli       = new mysqli( DB_HOST, DB_USER, DB_PASSWORD );
+	$mysql_server = explode( '-', mysqli_get_server_info( $mysqli ) );
+	$mysqli->close();
+
+	return sprintf( 'You are running WordPress %s  | PHP %s | %s | MySQL %s', $wp_version, phpversion(), $_SERVER['SERVER_SOFTWARE'], $mysql_server[0] );
 }
