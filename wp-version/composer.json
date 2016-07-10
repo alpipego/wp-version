@@ -19,7 +19,7 @@
   "require": {
     "composer/installers": "~1.0",
 
-    "johnpbloch/wordpress": "4.2.8",
+    "johnpbloch/wordpress": "4.5.3",
 
     "bueltge/must-use-loader": "*",
 
