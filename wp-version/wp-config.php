@@ -40,8 +40,8 @@ define( 'NONCE_SALT', 'fi1wZ6 *P#XH|wa1^%[~Mk26H(d%hdf):fZ<w-Sz-[&@re!Y}e+>q-,$@
 define( 'WP_DEBUG', true );
 define( 'SAVEQUERIES', true );
 define( 'WP_DEBUG_DISPLAY', true );
-define( 'WP_DEBUG_LOG', true );
 define( 'DISABLE_CACHE', true );
+ini_set( 'error_log', __DIR__ . '/log/wp.log' ); // instead of WP_DEBUG_LOG constant to change path
 
 /**
  * Folder Structure
