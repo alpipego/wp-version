@@ -20,17 +20,19 @@
     "composer/installers": "~1.0",
     "koodimonni/composer-dropin-installer": "*",
 
-    "johnpbloch/wordpress": "4.6.1",
+    "johnpbloch/wordpress-core": "4.8",
+    "johnpbloch/wordpress-core-installer": "1.0.*",
 
     "bueltge/must-use-loader": "*",
 
-    "wpackagist-theme/twentysixteen": "^1.2",
-    "wpackagist-theme/twentyfifteen": "^1.5",
-    "wpackagist-theme/twentyfourteen": "^1.7",
-    "wpackagist-theme/twentythirteen": "^1.9",
+    "wpackagist-theme/twentyseventeen": "^1.0",
+    "wpackagist-theme/twentysixteen": "^1.0",
+    "wpackagist-theme/twentyfifteen": "^1.0",
+    "wpackagist-theme/twentyfourteen": "^2.0",
+    "wpackagist-theme/twentythirteen": "^2.0",
     "wpackagist-theme/twentytwelve": "^2.0",
-    "wpackagist-theme/twentyeleven": "^2.4",
-    "wpackagist-theme/twentyten": "^2.1"
+    "wpackagist-theme/twentyeleven": "^2.0",
+    "wpackagist-theme/twentyten": "^2.0"
   },
   "extra": {
     "wordpress-install-dir": "web/wordpress",
