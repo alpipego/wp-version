@@ -8,17 +8,7 @@
 /wp-version/config/env.json
 
 /wp-version/web/wp-content/
-    !/wp-version/web/wp-content/index.php
-
-/wp-version/web/wp-content/upgrade/
-/wp-version/web/wp-content/uploads/
-/wp-version/web/wp-content/mu-plugins/
-    !/wp-version/web/wp-content/mu-plugins/version-in-footer.php
-    !/wp-version/web/wp-content/mu-plugins/index.php
-/wp-version/web/wp-content/themes/
-    !/wp-version/web/wp-content/themes/index.php
-/wp-version/web/wp-content/plugins/
-    !/wp-version/web/wp-content/plugins/index.php
-
 /wp-version/web/wordpress/
-    !/wp-version/web/wordpress/index.php
+    !**/index.php
+
+composer.local.json
