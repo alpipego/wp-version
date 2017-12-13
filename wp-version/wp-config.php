@@ -41,13 +41,13 @@ define( 'WP_DEBUG', true );
 define( 'SAVEQUERIES', true );
 define( 'WP_DEBUG_DISPLAY', true );
 define( 'DISABLE_CACHE', true );
-ini_set( 'error_log', __DIR__ . '/log/wp.log' ); // instead of WP_DEBUG_LOG constant to change path
+ini_set( 'error_log', dirname(__FILE__) . '/log/wp.log' ); // instead of WP_DEBUG_LOG constant to change path
 
 /**
  * Folder Structure
  */
 if ( ! defined( 'ABSPATH' ) ) {
-	define( 'ABSPATH', __DIR__ . '/' );
+	define( 'ABSPATH', dirname(__FILE__) . '/' );
 }
 
 define( 'WP_SITEURL', $conf['url'] . 'wordpress/' );
