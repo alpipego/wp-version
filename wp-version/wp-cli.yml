@@ -1,0 +1,7 @@
+path: web/wordpress
+user: admin
+
+@local:
+  ssh: vagrant@wp.version/var/www/wp-version
+  path: /var/www/wp-version/web/wordpress
+  url: http://wp.version

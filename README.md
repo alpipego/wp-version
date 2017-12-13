@@ -2,31 +2,34 @@
  A Vagrant virtual machine for testing WordPress in different environments.
  
 ## What's in it?
-Nginx and Apache web servers alongside php fpm.
+Nginx and Apache web servers alongside php-fpm.
 
 ### Operating System
-* Ubuntu 14.04.4 LTS (Trusty Tahr)
+* Ubuntu 14.04
 
 ### Web Server
 * apache 2.4.7
-* nginx 1.4.7
+* nginx 1.4.6 
+
+(so no http2 for now)
 
 ### PHP
-* phpbrew (see https://github.com/phpbrew/phpbrew for documentation and options). PHP versions are compiled with `+default+fpm+mysql+gd+openssl=shared -- --with-openssl-dir=/usr/include/openssl` 
- * ~~PHP 5.2.4 (simply was not able to build it on this system)~~
- * PHP 5.2.17
- * PHP 5.3.29
- * PHP 5.4.45
- * PHP 5.5.37
- * PHP 5.6.23
+* phpbrew (see https://github.com/phpbrew/phpbrew for documentation and options). PHP versions are compiled with `+default+fpm+mysql+gd+openssl=shared -- --with-openssl-dir=/usr/include/openssl` (php 5.*)|| `+default+fpm+mysql+gd+opcache+curl+openssl=shared -- --with-openssl` (php 7.*)
+   * PHP 5.2.17
+   * PHP 5.3.29
+   * PHP 5.4.45
+   * PHP 5.5.37
+   * PHP 5.6.23
+   * PHP 7.0.26 (system)
+   * PHP 7.1.12
+   * PHP 7.2.0
  
-* PHP 7.0.8-3
- 
+### Misc 
 * git
 * WP CLI (https://wp-cli.org/) 
 
 ## Usage 
-At the moment it is a very manual task to change the environment. For a future release changing environments will be simplified.
+At the moment it is a very manual task to change the environment. For a future release changing environments should be simplified.
 
 ### Web Server
 Make sure to stop the currently running server. Either check with `sudo netstat -tulpn | grep --color :80` which server is running or stop them both `sudo service apache2 stop && sudo service nginx stop` and then start the one you want to use 
@@ -42,7 +45,7 @@ sudo service apache2 start
 ```
 
 ### PHP
-The above PHP versions come bundled and you can change between them using 
+The above PHP versions come bundled, and you can change between them using 
 
 ```
 phpbrew fpm stop && phpbrew use X.X.XX && phpbrew fpm start
@@ -50,7 +53,7 @@ phpbrew fpm stop && phpbrew use X.X.XX && phpbrew fpm start
 
 (e.g. `phpbrew fpm stop && phpbrew use 5.3.29 && phpbrew fpm start`). 
 
-You are not limited to these versions however and can compile new versions easily. First find the version you want to be using with 
+You are not limited to these versions however and can compile new versions yourself. First find the version you want to use with 
 
 ```
 phpbrew known --more
@@ -64,7 +67,7 @@ phpbrew install X.X.XX +default+fpm+mysql+gd+openssl=shared -- --with-openssl-di
 
 If you encounter errors during compile, missing packages etc. check http://jcutrer.com/howto/linux/how-to-compile-php7-on-ubuntu-14-04 or http://crybit.com/20-common-php-compilation-errors-and-fix-unix/ for common errors and their fixes (or simply google the error message).
 
-After succesful compilation change the address on which to accept FastCGI requests in the respective `php-fpm.conf`, e.g. `~/.phpbrew/php/php-5.3.29/etc/php-fpm.conf`, form socket to localhost port 9000 (to allow fast switching of php versions):
+After successful compilation change the address on which to accept FastCGI requests in the respective `php-fpm.conf`, e.g. `~/.phpbrew/php/php-5.3.29/etc/php-fpm.conf`, form socket to localhost port 9000 (to allow fast switching of php versions):
 
 
 ```
@@ -82,7 +85,16 @@ This has already been done for the preinstalled PHP versions.
 
 ### Composer Packages
 
-Check out the documentation for each tool and the usage examples, if you don't know how to use them:
+If you want to prevent your `composer.json` from getting overwritten on each update, place your custom packages, plugins, themes, and dropins in a file named `composer.local.json`, e.g.:
+
+```
+{
+  "require": {
+    "wpackagist-plugin/multilingual-press": "^2.6",
+    "alpipego/resizefly": "^2.0"
+  }
+}
+```
 
 **Adding Languages**
 
@@ -129,7 +141,7 @@ You can also add plugins and themes via the backend or your local file system (s
 ## Notes
 
 ### PHP 5.2.x
-If you change to PHP 5.2.x and want to go back to another version you'll have to turn `phpbrew off` first before running another command with `phpbrew` as phpbrew requires 5.3. When turning `phpbrew off` the bundled PHP version is in use (PHP 7.0.3), e.g.
+If you change to PHP 5.2.x and want to go back to another version, you'll have to turn `phpbrew off` first before running another command with `phpbrew` as phpbrew requires 5.3. When turning `phpbrew off` the bundled PHP version is in use (PHP 7.0.3), e.g.
 
 ```
 phpbrew fpm stop && phpbrew off
@@ -139,6 +151,7 @@ phpbrew use php-5.6.23 && phpbrew fpm start
 **PHP 5.2.17 only works with nginx at the moment.**
 
 Composer requires PHP 5.3.2+ so make sure to install the required packages before changing to PHP 5.2.X.
+
 ### Themes
 If you checkout an older version of WordPress you might want to activate the default theme that came with that version as well. Otherwise there might be some `Undefined Function` errors on the page. See the following for a list and pick the theme that is nearest to the release you are checking out:
 
@@ -150,7 +163,7 @@ If you checkout an older version of WordPress you might want to activate the def
 * Twenty Fifteen &ndash; Version 4.1
 * Twenty Sixteen &ndash; Version 4.4
 
-**The latest version of a theme is not necessarily compatible to the WordPress version it original shipped with, (e.g. WordPress 3.8 and TwentyFourteen 1.7). If you happen to see `undefined function` errors you might want to get an older version of the theme.**
+**The latest version of a theme is not necessarily compatible with the WordPress version it originally shipped with, (e.g., WordPress 3.8 and TwentyFourteen 1.7). If you happen to see `undefined function` errors, you might want to get an older version of the theme.**
 
 ### Server Logs
 The server logs (error and access log) are located in `/var/www/wp-version/log`.
