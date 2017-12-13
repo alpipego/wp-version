@@ -20,7 +20,7 @@
     "composer/installers": "~1.0",
     "koodimonni/composer-dropin-installer": "*",
 
-    "johnpbloch/wordpress-core": "4.8",
+    "johnpbloch/wordpress-core": "4.9.*",
     "johnpbloch/wordpress-core-installer": "1.0.*",
 
     "bueltge/must-use-loader": "*",
@@ -32,7 +32,9 @@
     "wpackagist-theme/twentythirteen": "^2.0",
     "wpackagist-theme/twentytwelve": "^2.0",
     "wpackagist-theme/twentyeleven": "^2.0",
-    "wpackagist-theme/twentyten": "^2.0"
+    "wpackagist-theme/twentyten": "^2.0",
+
+    "wikimedia/composer-merge-plugin": "^1.4"
   },
   "extra": {
     "wordpress-install-dir": "web/wordpress",
@@ -45,6 +47,11 @@
       "web/languages/": ["vendor:koodimonni-language"],
       "web/languages/plugins/": ["vendor:koodimonni-plugin-language"],
       "web/languages/themes/": ["vendor:koodimonni-theme-language"]
+    },
+    "merge-plugin": {
+      "include": [
+        "composer.local.json"
+      ]
     }
   },
   "scripts": {
