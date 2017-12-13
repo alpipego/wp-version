@@ -42,5 +42,8 @@ Vagrant.configure(2) do |config|
   config.vm.provision "shell", run: "always", inline: <<-SHELL
     composer self-update
     # add any startup script here, e.g.
+    sudo service php7.0-fpm stop
+    phpbrew fpm start
+    sudo service nginx reload
   SHELL
 end
