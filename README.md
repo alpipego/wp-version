@@ -14,19 +14,20 @@ Nginx and Apache web servers alongside php-fpm.
 (so no http2 for now)
 
 ### PHP
-* phpbrew (see https://github.com/phpbrew/phpbrew for documentation and options). PHP versions are compiled with `+default+fpm+mysql+gd+openssl=shared -- --with-openssl-dir=/usr/include/openssl` (php 5.*)|| `+default+fpm+mysql+gd+opcache+curl+openssl=shared -- --with-openssl` (php 7.*)
-   * PHP 5.2.17
+* phpbrew (see https://github.com/phpbrew/phpbrew for documentation and options). 
+   * PHP 5.2.17 (no gd or imagick support)
    * PHP 5.3.29
    * PHP 5.4.45
    * PHP 5.5.37
    * PHP 5.6.23
-   * PHP 7.0.26 (system)
+   * PHP 7.0.26
    * PHP 7.1.12
    * PHP 7.2.0
  
 ### Misc 
 * git
-* WP CLI (https://wp-cli.org/) 
+* WP CLI
+* composer
 
 ## Usage 
 At the moment it is a very manual task to change the environment. For a future release changing environments should be simplified.
