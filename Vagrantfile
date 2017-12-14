@@ -16,7 +16,7 @@ Vagrant.configure(2) do |config|
 
   # Box
   config.vm.box = "alpipego/wp-version"
-  config.vm.box_version = "0.5.0"
+  config.vm.box_version = "0.5.1"
 
   # NETWORK
   config.vm.network "private_network", ip: "192.168.11.17"
