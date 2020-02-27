@@ -5,10 +5,6 @@ unless Vagrant.has_plugin?("vagrant-hostsupdater")
   puts "The vagrant-hostsupdater plugin is not installed. You will have to manually add the following entry 192.168.11.17 wp.version"
 end
 
-unless Vagrant.has_plugin?("vagrant-vbguest")
-  puts "The vagrant-vbguest plugin is not installed. If you are using VirtualBox < 5.0 you should install this plugin."
-end
-
 Vagrant.configure(2) do |config|
   # The most common configuration options are documented and commented below.
   # For a complete reference, please see the online documentation at
@@ -16,7 +12,7 @@ Vagrant.configure(2) do |config|
 
   # Box
   config.vm.box = "alpipego/wp-version"
-  config.vm.box_version = "0.5.1"
+  config.vm.box_version = "0.5.2"
 
   # NETWORK
   config.vm.network "private_network", ip: "192.168.11.17"
@@ -42,8 +38,11 @@ Vagrant.configure(2) do |config|
   config.vm.provision "shell", run: "always", inline: <<-SHELL
     composer self-update
     # add any startup script here, e.g.
-    sudo service php7.0-fpm stop
-    phpbrew fpm start
     sudo service nginx reload
+    echo '===='
+    echo 'ssh into the box and start the phpfpm'
+    echo ' '
+    echo 'vagrant ssh'
+    echo 'phpbrew fpm start'
   SHELL
 end
